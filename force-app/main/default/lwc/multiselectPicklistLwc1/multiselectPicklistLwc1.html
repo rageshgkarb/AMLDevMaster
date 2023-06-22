@@ -1,0 +1,33 @@
+<template>
+    <div class="table-container">
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label" style="Table-Layout:fixed">
+        <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Nature & Purpose</th>
+                    <th>Is Blocked</th>
+                </tr>
+        </thead>
+        
+        <tbody disabled = {isDisabledListener}>
+            <template for:each={npdata} for:item="row">
+                <tr key={row.caccId}>
+                    <td>{row.caccName}</td>
+                    <td>{row.caccProduct}</td>
+                    <td><c-multiselect-picklist-lwc 
+                    single-line=true
+                    items={optionItems}
+                    items-master={optionItemsMaster} 
+                    onvaluechange={handleValueChange}
+                    picklist-placeholder="Select an Option"
+                    rowid={row.caccId}>
+                    </c-multiselect-picklist-lwc ></td>
+                    <td>{row.caccIsBlocked}</td>
+            
+                </tr>
+            </template>
+        </tbody>
+    </table>
+    </div>
+</template>

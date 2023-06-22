@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-p-raound_xx-small">
+      <lightning-combobox name={picklistName}
+       label={picklistLabel}
+       placeholder={picklistPlaceholder} value={value} options={items} onchange={handleChangeItems}></lightning-combobox>
+    </div>
+    <div class="slds-p-raound_xx-small">
+      <lightning-pill-container items={allValuesteitems} onitemremove={handleItemRemove}></lightning-pill-container>
+    </div>
+  </template>

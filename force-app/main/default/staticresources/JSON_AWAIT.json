@@ -1,0 +1,901 @@
+
+{
+  "TNResponse" : {
+    "Applications" : [ {
+      "links" : null,
+      "rulesetOutcomes" : [ {
+        "riskLevel" : "CIFAS App Error",
+        "ruleOutcomes" : [ {
+          "numberOfMatchRecords" : 1,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas App Error",
+          "description" : "Cifas App Error",
+          "score" : -999999,
+          "outcome" : true
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 3 Loading and Email Address Match",
+          "description" : "Cifas - Cat 3 Loading and Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 6 Loading and  Individual Match",
+          "description" : "Cifas - Cat 6 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 6 Loading and  Telephone Num Match",
+          "description" : "Cifas - Cat 6 Loading and  Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 7 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 7 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 1 Loading IP Address",
+          "description" : "Cifas - Cat 1 Loading IP Address",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 9 Loading and  Individual Match",
+          "description" : "Cifas - Cat 9 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 1 Loading Email Address Match",
+          "description" : "Cifas - Cat 1 Loading Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 8 Loading and  IP Address Match",
+          "description" : "Cifas - Cat 8 Loading and  IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 3 Loading and  Telephone Num Match",
+          "description" : "Cifas - Cat 3 Loading and  Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 0 Loading and  Address Match",
+          "description" : "Cifas - Cat 0 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 2 Loading and Email Address Match",
+          "description" : "Cifas - Cat 2 Loading and Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 5 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 5 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 8 Loading and  Individual Match",
+          "description" : "Cifas - Cat 8 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 8 Loading and  Address Match",
+          "description" : "Cifas - Cat 8 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 4 Loading and IP Address Match",
+          "description" : "Cifas - Cat 4 Loading and IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 1 Loading Address Match",
+          "description" : "Cifas - Cat 1 Loading Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 0 Loading and  Telephone Num Match",
+          "description" : "Cifas - Cat 0 Loading and  Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 3 Loading and  IP Address Match",
+          "description" : "Cifas - Cat 3 Loading and  IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 0 Loading and IP Address Match",
+          "description" : "Cifas - Cat 0 Loading and IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 6 Loading and  Email Address Match",
+          "description" : "Cifas - Cat 6 Loading and  Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 9 Loading and  Address Match",
+          "description" : "Cifas - Cat 9 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 2 Loading and Telephone Num Match",
+          "description" : "Cifas - Cat 2 Loading and Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - greater than or 2 applications from same mobile number in same day",
+          "description" : "Velocity (Applicant) - greater than or 2 applications from same mobile number in same day",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 7 Loading and  Email Address Match",
+          "description" : "Cifas - Cat 7 Loading and  Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 4 Loading and  Email Address Match",
+          "description" : "Cifas - Cat 4 Loading and  Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 4 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 4 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - 2 or more applications from same individual in same day",
+          "description" : "Velocity (Applicant) - 2 or more applications from same individual in same day",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas Cat 3 Loading and  Individual Match",
+          "description" : "Cifas Cat 3 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 1 Loading Individual Match",
+          "description" : "Cifas - Cat 1 Loading Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - greater than or 3 applications from same individual in same week",
+          "description" : "Velocity (Applicant) - greater than or 3 applications from same individual in same week",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 5 Loading and  Individual Match",
+          "description" : "Cifas - Cat 5 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 5 Loading and  Telephone Num Match",
+          "description" : "Cifas - Cat 5 Loading and  Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 9 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 9 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 9 Loading and  Email Address Match",
+          "description" : "Cifas - Cat 9 Loading and  Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - greater than or 4 applications from same mobile number in same week",
+          "description" : "Velocity (Applicant) - greater than or 4 applications from same mobile number in same week",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 1 Loading Telephone Num Match",
+          "description" : "Cifas - Cat 1 Loading Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - greater than or 3 applications from same address in same day",
+          "description" : "Velocity (Applicant) - greater than or 3 applications from same address in same day",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 2 Loading and Financial Details Match",
+          "description" : "Cifas - Cat 2 Loading and Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 8 Loading and  Email Address Match",
+          "description" : "Cifas - Cat 8 Loading and  Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - greater than or 2 applications from same email address in same day",
+          "description" : "Velocity (Applicant) - greater than 2 applications from same email address in same day",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 4 Loading and  Address Match",
+          "description" : "Cifas - Cat 4 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 4 Loading and  Individual Match",
+          "description" : "Cifas - Cat 4 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - greater than or 5 applications from same address in same week",
+          "description" : "Velocity (Applicant) - greater than or 5 applications from same address in same week",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 7 Loading and  Address Match",
+          "description" : "Cifas - Cat 7 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 1 Loading Financial Details",
+          "description" : "Cifas - Cat 1 Loading Financial Details",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 2 Loading and  IP Address Match",
+          "description" : "Cifas - Cat 2 Loading and  IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 0 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 0 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 7 Loading and  IP Address Match",
+          "description" : "Cifas - Cat 7 Loading and  IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 1,
+          "versionNumber" : 1,
+          "name" : "Velocity (Applicant) - greater than or 4 applications from same email address in same week",
+          "description" : "Velocity (Applicant) - greater than or 4 applications from same email address in same week",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 5 Loading and  IP Address Match",
+          "description" : "Cifas - Cat 5 Loading and  IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 2 Loading and  Address Match",
+          "description" : "Cifas - Cat 2 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 3 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 3 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 6 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 6 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 0 Loading and Email Address Match",
+          "description" : "Cifas - Cat 0 Loading and Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 5 Loading and  Email Address Match",
+          "description" : "Cifas - Cat 5 Loading and  Email Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 9 Loading and  Telephone Num Match",
+          "description" : "Cifas - Cat 9 Loading and  Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 4 Loading and Telephone Num Match",
+          "description" : "Cifas - Cat 4 Loading and Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas -Cat 9 Loading and  IP Address Match",
+          "description" : "Cifas -Cat 9 Loading and  IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 8 Loading and  Telephone Num Match",
+          "description" : "Cifas - Cat 8 Loading and  Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 3 Loading and  Address Match",
+          "description" : "Cifas - Cat 3 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 2 Loading and Individual Match",
+          "description" : "Cifas - Cat 2 Loading and Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 6 Loading and  Address Match",
+          "description" : "Cifas - Cat 6 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 6 Loading and  IP Address Match",
+          "description" : "Cifas - Cat 6 Loading and  IP Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 7 Loading and  Individual Match",
+          "description" : "Cifas - Cat 7 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 0 Loading and  Individual Match",
+          "description" : "Cifas - Cat 0 Loading and  Individual Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 7 Loading and  Telephone Num Match",
+          "description" : "Cifas - Cat 7 Loading and  Telephone Num Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 5 Loading and  Address Match",
+          "description" : "Cifas - Cat 5 Loading and  Address Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Cifas - Cat 8 Loading and  Financial Details Match",
+          "description" : "Cifas - Cat 8 Loading and  Financial Details Match",
+          "score" : 0,
+          "outcome" : false
+        }, {
+          "numberOfMatchRecords" : 0,
+          "revisionNumber" : 0,
+          "versionNumber" : 1,
+          "name" : "Test Rule Craigh",
+          "description" : "Test Rule Craigh",
+          "score" : 0,
+          "outcome" : false
+        } ],
+        "score" : -999999,
+        "reference" : "RS8690"
+      } ],
+      "decision" : {
+        "label" : null,
+        "code" : null
+      },
+      "progressStatus" : {
+        "label" : "Referred",
+        "code" : "REFERRED"
+      },
+      "endDateTime" : "2022-09-15T15:47:24Z",
+      "startDateTime" : "2022-09-15T15:47:24Z",
+      "journeyType" : {
+        "label" : "Application Fraud",
+        "id" : 1
+      },
+      "riskLevel" : "CIFAS App Error",
+      "nameReference" : "Testttt Force26",
+      "user" : {
+        "name" : "ppTNapi@alrayanbank.co.uk",
+        "id" : 5693
+      },
+      "country" : "United Kingdom",
+      "organisationId" : {
+        "id" : 1091
+      },
+      "journeyId" : {
+        "name" : "1a. Fraud checks (applicant)",
+        "id" : 5145
+      },
+      "runId" : 66924928,
+      "auditReference" : "AU25332826",
+      "uid" : "13146c42-9919-4b82-9a84-57c6877b5a0a"
+    } ],
+    "decision" : {
+      "label" : null,
+      "code" : null
+    },
+    "status" : {
+      "label" : "Referred",
+      "code" : "REFERRED"
+    },
+    "accountId" : 674033
+  },
+  "RuleOutcomes" : [ {
+    "Score" : -999999,
+    "Outcome" : true,
+    "RuleName" : "Cifas App Error"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 3 Loading and Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 6 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 6 Loading and  Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 7 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 1 Loading IP Address"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 9 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 1 Loading Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 8 Loading and  IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 3 Loading and  Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 0 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 2 Loading and Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 5 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 8 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 8 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 4 Loading and IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 1 Loading Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 0 Loading and  Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 3 Loading and  IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 0 Loading and IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 6 Loading and  Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 9 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 2 Loading and Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - greater than or 2 applications from same mobile number in same day"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 7 Loading and  Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 4 Loading and  Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 4 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - 2 or more applications from same individual in same day"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas Cat 3 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 1 Loading Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - greater than or 3 applications from same individual in same week"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 5 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 5 Loading and  Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 9 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 9 Loading and  Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - greater than or 4 applications from same mobile number in same week"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 1 Loading Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - greater than or 3 applications from same address in same day"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 2 Loading and Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 8 Loading and  Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - greater than or 2 applications from same email address in same day"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 4 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 4 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - greater than or 5 applications from same address in same week"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 7 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 1 Loading Financial Details"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 2 Loading and  IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 0 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 7 Loading and  IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Velocity (Applicant) - greater than or 4 applications from same email address in same week"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 5 Loading and  IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 2 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 3 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 6 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 0 Loading and Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 5 Loading and  Email Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 9 Loading and  Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 4 Loading and Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas -Cat 9 Loading and  IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 8 Loading and  Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 3 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 2 Loading and Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 6 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 6 Loading and  IP Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 7 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 0 Loading and  Individual Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 7 Loading and  Telephone Num Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 5 Loading and  Address Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Cifas - Cat 8 Loading and  Financial Details Match"
+  }, {
+    "Score" : 0,
+    "Outcome" : false,
+    "RuleName" : "Test Rule Craigh"
+  } ],
+  "ErrorMessage" : null,
+  "ErrorCode" : null,
+  "Decision" : null,
+  "InitialDecision" : "REFERRED",
+  "TNId" : 674033,
+  "MessageId" : "9249DD9F-A479-432C-98D9-96F5DFF08C50"
+}

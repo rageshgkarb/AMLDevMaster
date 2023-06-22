@@ -1,0 +1,937 @@
+<template>
+    <template class="ob-spinner-container" if:true={showspinner}>
+        <lightning-spinner alternative-text="Loading" variant="brand" class="slds-is-fixed" size="large"></lightning-spinner>
+    </template>
+    <lightning-card title={caseNumberTitle} icon-name="standard:multi_select_checkbox">
+        <h3 slot="actions">
+             <lightning-button label="Back to Case" variant="brand-outline" title="Save as draft" onclick={handlebacktoCase} class="slds-m-left_x-small" > </lightning-button>
+             <lightning-button label="Save as draft" variant="brand" title="Save as draft" onclick={handleSaveasdraft} class="slds-m-left_x-small" disabled={submitEDDform}> </lightning-button>
+        </h3>
+        <div class="slds-box">
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-5  slds-p-left_large">
+                    <lightning-combobox
+                        name="reviewTypeValue"
+                        label="Review Type"
+                        value={reviewType}
+                        placeholder="Select Progress"
+                        options={reviewTypeOptions}
+                        onchange={handleChangereviewType} disabled={submitEDDform}></lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <lightning-input label="Customer Name" value={customerName} disabled=true></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <lightning-input label="EBS ID" value={ebsId} disabled=true></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <lightning-input label="Risk Rating" value={riskRating} disabled=true></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <!--<lightning-input label="Relationship Manager" value={relationshipManager}></lightning-input>-->
+                    <template if:true={flagIndicatingDataHasBeenLoadedInVariables}>
+                        <c-custom-lookup-lwc 
+                        label="Relationship Manager"
+                        onlookupupdate={handleSelectedlookup} 
+                        placeholder="Search Manager" 
+                        selectedrecord={relationshipManagerWrap}
+                        is-disabled-listener={submitEDDform}> </c-custom-lookup-lwc >
+                    </template>
+                </div>
+            </div>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <lightning-input type="date" name="customerConvertedDateValue" label="Converted to customer date" value={customerConvertedDate} disabled=true></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <lightning-input type="date" name="dateOfSubmissionValue" label="Date of submission" value={dateOfSubmission} disabled=true></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <lightning-input label="EDD Review SF Case Number" value={caseNumber} disabled=true></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <lightning-combobox
+                        name="departmentValue"
+                        label="Department"
+                        value={department}
+                        placeholder="Select Progress"
+                        options={departmentOptions}
+                        onchange={handleChangedepartment} disabled=true></lightning-combobox>
+                </div>
+                 <div class="slds-col slds-size_1-of-5 slds-p-left_large">
+                    <!--<lightning-input label="Review prepared by" value={reviewPreparedBy}></lightning-input>-->
+                    <template if:true={flagIndicatingDataHasBeenLoadedInVariables}>
+                        <c-custom-lookup-lwc label="Review prepared by" 
+                        onlookupupdate={handleSelectedlookup} 
+                        placeholder="Search Executive" 
+                        selectedrecord={reviewPreparedByWrap}
+                        is-disabled-listener={submitEDDform}> </c-custom-lookup-lwc >
+                    </template>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slds-box">
+            <lightning-tabset variant="scoped">
+                <lightning-tab label="CUSTOMER & ACCOUNT INFORMATION" icon-name="standard:opportunity_contact_role">
+                    <div class="tabContent">
+                        <div class="slds-box">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-5  slds-p-left_large slds-p-right_large">
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Entity Type" value={entityType} disabled=true></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Registration Number" value={registrationNumber} disabled=true></lightning-input>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Registered Address" value={registeredAddress} disabled=true></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Trading Address" value={tradingAddress} disabled=true></lightning-input>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-combobox
+                                                name="Location"
+                                                label="Location "
+                                                value={IDVLocation}
+                                                placeholder="Select Location"
+                                                options={countryOptions}
+                                                onchange={handleIDVLocation} disabled=true ></lightning-combobox>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Contact method at Onboarding" value={contactMethod} disabled=true></lightning-input>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <!-- <lightning-input label="Last Contact made with customer " value={contactLastMade} disabled=true></lightning-input> -->
+                                            <lightning-input type="date" name="lastContactMadeWithCustomer" label="Last Contact made with customer" value={contactLastMade} disabled={submitEDDform}></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                             <lightning-combobox
+                                                name="methodMostRecentContactValue"
+                                                label="Method of most recent contact"
+                                                value={methodMostRecentContact}
+                                                placeholder="Select Progress"
+                                                options={methodMostRecentContactOptions}
+                                                onchange={handleChangemethodMostRecentContact}
+                                                disabled={submitEDDform}></lightning-combobox>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Source of Funds" value={sourceOfFunds} disabled=true></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-combobox
+                                                name="sourceOfFundsCountryValue"
+                                                label="Source of Funds Country"
+                                                value={sourceOfFundsCountry}
+                                                placeholder="Select Progress"
+                                                options={countryOptions}
+                                                onchange={handleChangesourceOfFundsCountry} disabled=true></lightning-combobox>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="International Fund Transfer Frequency" value={internationalFundTransferFrequency} disabled=true></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="International Fund Transfer Source" value={intFundTransferSource} disabled=true></lightning-input>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Estimated Monthly Volume Inward" value={estMonthlyVolumeInward} disabled=true></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Estimated Monthly Volume Outward" value={estMonthlyVolumeOutward} disabled=true></lightning-input>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Estimated Cash Withdrawal Frequency" value={estCashWithdrawalFrequency} disabled=true></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Estimated Cash Deposit frequency" value={estCashDeprequency} disabled=true></lightning-input>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid" >
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Overall Company Credit Turnover" value={overallCompCreditTurnover} disabled=true></lightning-input>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Expected Annual Turnover" value={expAnnualTurnover} onchange={handleChangeexpAnnualTurnover} disabled={submitEDDform}></lightning-input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-size_3-of-5  slds-p-left_large">
+                                    <div class="slds-box">
+                                        <lightning-card title="Link Customers Here" icon-name="standard:omni_supervisor">
+                                            
+                                            <c-custom-lookup-lwc onlookupupdate={handleSelectedlookup} 
+                                            label="Customers"  placeholder="Search Customer" 
+                                            sobjectapiname="Account" is-disabled-listener={submitEDDform}> </c-custom-lookup-lwc >
+
+                                            <br/>
+                                                <lightning-datatable
+                                                        key-field="caccId"
+                                                        data={toLinkAccs}
+                                                        hide-checkbox-column
+                                                        columns={linkedcustomercolumns}>
+                                                    </lightning-datatable>
+                                        </lightning-card>
+                                    </div>
+                                    <div class="slds-box">
+                                        <lightning-card title="Products and Services & Nature and Purpose of the Account(s)" icon-name="standard:product_service_campaign">
+                                            <!--<lightning-datatable
+                                                    key-field="caccId"
+                                                    data={custAccs}
+                                                    hide-checkbox-column
+                                                    columns={customerAccountcolumns}> 
+                                                    </lightning-datatable>-->
+                                             <c-multiselect-picklist-lwc1 
+                                            npdata={custAccs} 
+                                            onchangemultiselect={changemultiselect}></c-multiselect-picklist-lwc1>
+                                                
+                                        </lightning-card>
+                                    </div>
+                                    <div class="slds-box">
+                                    <lightning-card title="Onboarding Products" icon-name="standard:product_service_campaign">
+                                        <c-multiselect-picklist-lwc 
+                                        single-line=true 
+                                        items={productOptions}
+                                        items-master={productOptions}
+                                        onvaluechange={handleProductOptions}
+                                        picklist-name="productoptionvalues"
+                                        picklist-label="Onboarding Products"
+                                        picklist-placeholder="Select Products" ></c-multiselect-picklist-lwc>
+                                         </lightning-card>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="CUSTOMER DUE DILIGENCE MEASURES" icon-name="standard:asset_audit">
+                    <div class="tabContent">
+                         <div class="slds-box">
+                             <div class="slds-grid" >
+                                <div class="slds-col slds-size_1-of-3 slds-p-left_large">
+                                    <lightning-card title="Summary of the Customer" icon-name="standard:avatar">
+                                        <lightning-textarea label="About" value={abtCustomer} onchange={handleChangeabtCustomer} disabled={submitEDDform}></lightning-textarea>
+                                        
+                                        <!--<lightning-input label="Onboarding Case Number"></lightning-input>
+                                        <c-custom-lookup-lwc onlookupupdate={handleSelectedlookup} label="Onboarding Case Number"  placeholder="Search Case No." sobjectapiname="Case"> </c-custom-lookup-lwc > -->
+                                         <c-custom-lookup-lwc label="Onboarding Case Number"
+                                          onlookupupdate={handleSelectedlookup}
+                                        placeholder="Search Case No." 
+                                        selectedrecord={onboardingCasenoWrap}
+                                        sobjectapiname='Case'
+                                        is-disabled-listener={submitEDDform}> </c-custom-lookup-lwc >
+                                        
+                                        <!-- <lightning-combobox
+                                                
+                                                value={maincountriesOp}
+                                                
+                                                options={countryOptions}
+                                                onchange={handlemaincountriesOp} ></lightning-combobox> -->
+                                        <!--<c-multiselect-picklist-lwc 
+                                        single-line=true 
+                                        items={countryOptions}
+                                        items-master={countryOptions}
+                                        onvaluechange={handleValueChange}
+                                        picklist-name="maincountriesOpValue"
+                                        picklist-label="Main Countries of Operation"
+                                        picklist-placeholder="Select Countries" ></c-multiselect-picklist-lwc> -->
+                                        
+
+                                    </lightning-card>
+                                </div>
+                                 <div class="slds-col slds-size_1-of-3 slds-p-left_large" >
+                                     <lightning-card title="Corporate Structure" icon-name="standard:budget_allocation">
+                                                <lightning-combobox
+                                                name="corporatestructureValue"
+                                                label="Confirmation that a corporate structure has been obtained"
+                                                value={corporatestructure}
+                                                placeholder="Select Progress"
+                                                options={corporateStructureOptions}
+                                                onchange={handleChangecorporatestructure}
+                                                disabled={submitEDDform} ></lightning-combobox>
+                                                
+                                                <lightning-combobox
+                                                name="rrcorporatestructureValue"
+                                                label="Is there a reasonable rationale for this corporate structure?"
+                                                value={rrcorporatestructure}
+                                                placeholder="Select Progress"
+                                                options={corporateStructureOptions}
+                                                onchange={handleChangerrcorporatestructure}
+                                                disabled={submitEDDform} ></lightning-combobox>
+
+                                                <lightning-combobox
+                                                name="spvtrustValue"
+                                                label="Does it involve SPVs, trusts, etc?"
+                                                value={spvtrust}
+                                                placeholder="Select Progress"
+                                                options={corporateStructureOptions}
+                                                onchange={handleChangespvtrust}
+                                                disabled={submitEDDform} ></lightning-combobox>
+
+                                                <lightning-combobox
+                                                name="reasonEntityTypeValue"
+                                                label="If yes, please state the reason for the entity type"
+                                                value={reasonEntityType}
+                                                placeholder="Select Progress"
+                                                options={corporateStructureOptions}
+                                                onchange={handleChangereasonEntityType}
+                                                disabled={submitEDDform} ></lightning-combobox>
+
+                                                <lightning-combobox
+                                                name="structurecomplexValue"
+                                                label="Is the structure complex/opaque?"
+                                                value={structurecomplex}
+                                                placeholder="Select Progress"
+                                                options={corporateStructureOptions}
+                                                onchange={handleChangestructurecomplex}
+                                                disabled={submitEDDform} ></lightning-combobox>
+                                    </lightning-card>
+                                </div>
+                                 <div class="slds-col slds-size_1-of-3 slds-p-left_large" >
+                                     <lightning-card title="Proof of ID&V" icon-name="standard:contact">
+                                                <lightning-combobox
+                                                name="IDVsatisfiedValue"
+                                                label="ID&V satisfied?"
+                                                value={IDVsatisfied}
+                                                placeholder="Select Progress"
+                                                options={yesnoOptions}
+                                                onchange={handleChangeIDVsatisfied}
+                                                disabled={submitEDDform} ></lightning-combobox>
+                                    </lightning-card>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="ENHANCED DUE DILIGENCE" icon-name="standard:asset_relationship">
+                    <div class="tabContent">
+                        <div class="slds-box">
+                            <div class="slds-grid" >
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <div class="slds-box">
+                                            <lightning-card title="Source Of Wealth" icon-name="standard:channel_program_members"><br/>
+                                                 <lightning-textarea label="Comments" onchange={handleSourceofWealthComments} value={SourceofWealthComments} disabled={submitEDDform}></lightning-textarea><br/>
+                                                 <lightning-input label="Reference" value={referenceText} onchange={handleReferenceChange} disabled={submitEDDform}></lightning-input><br/>
+                                                 <lightning-button variant="brand" label="Add A&L" title="Add A&L" onclick={handleAddAL} class="slds-m-left_x-small" disabled={buttonStatus}></lightning-button>
+                                                 <template for:each={items} for:item="item">
+                                                    <!-- <c-sow-table key={item.id} data={item} reference={item.ref}></c-sow-table> -->
+                                                    <div key={item.id} >
+                                                        <div>{item.ref}</div>
+                                                        <div style="float: right">
+                                                            <lightning-button-icon data-id={item.id} icon-name="utility:close" label="close" variant="close" onclick={handleRemoveTable}></lightning-button-icon>
+                                                        </div>
+                                                        <c-source-of-wealth
+                                                            remove-table={removeIndex} 
+                                                            reference-id={item.id} 
+                                                            eddidfromparent={eddId} 
+                                                            type="Assets" 
+                                                            ontotalassetupdate={handletotalAsset} 
+                                                            is-disabled-listener={submitEDDform}
+                                                            table-label="Total Assets"> </c-source-of-wealth>
+                                                        <br/>
+                                                        <c-source-of-wealth 
+                                                            remove-table={removeIndex} 
+                                                            reference-id={item.id} 
+                                                            eddidfromparent={eddId} 
+                                                            type="Liabilities" 
+                                                            ontotalassetupdate={handletotalLibs} 
+                                                            is-disabled-listener={submitEDDform}
+                                                            table-label="Total Liabilities"> </c-source-of-wealth>
+                                                        <br/>
+                                                        <lightning-input label="Net Worth" class="slds-size_medium" value={item.netWorth} disabled=true></lightning-input>
+                                                    </div>
+
+                                                </template>
+                                               
+                                                <!-- <c-source-of-wealth eddidfromparent={eddId} type="Assets" ontotalassetupdate={handletotalAsset}> </c-source-of-wealth>
+                                                <br/>
+                                                <lightning-input label="Total Assets" class="slds-size_small" value={totalAssets} disabled=true></lightning-input>
+                                                <br/>
+                                                <c-source-of-wealth eddidfromparent={eddId} type="Liabilities" ontotalassetupdate={handletotalLibs}> </c-source-of-wealth>
+                                                <br/>
+                                                <lightning-input label="Total Liabilities" class="slds-size_small" value={totalLibs} disabled=true></lightning-input>
+                                                <br/>
+                                                <br/>
+                                                <lightning-input label="Net Worth" class="slds-size_medium" value={netWorth} onchange={calculateNetWorth} disabled=true></lightning-input>
+                                             -->
+                                            </lightning-card>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 ">
+                                            <div class="slds-box">
+                                                <lightning-card title="Source of Funds" icon-name="standard:channel_program_members">
+                                                    <lightning-input label="Source of Funds" value={sourceOfFunds} disabled=true></lightning-input>
+                                                    <lightning-combobox
+                                                            name="sofChangesinceValue"
+                                                            label="Change Since Last Review"
+                                                            value={sofChangesince}
+                                                            placeholder="Select Progress"
+                                                            options={yesnoOptions}
+                                                            onchange={handlesofChangesince}
+                                                            disabled={submitEDDform} ></lightning-combobox>
+                                                    <!--<lightning-textarea label="Comments"></lightning-textarea> -->
+                                                <lightning-textarea label="Comments" onchange={handleSourceofComments} value={SourceofComments} disabled={submitEDDform}></lightning-textarea>
+                                                </lightning-card>
+                                                <br/><br/>
+                                                <lightning-textarea value={EDDsupportinginformation} label="Supporting information" onchange={handleChangeEDDsupportinginformation} disabled={submitEDDform}></lightning-textarea>
+                                            </div> 
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="CUSTOMER RISK ASSESSMENT" icon-name="standard:calculated_insights">
+                    <div class="tabContent">
+                         <div class="slds-box">
+                             <div class="slds-grid" >
+                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                    <div class="slds-box">
+                                        <lightning-card title="Customer Risk Rating" icon-name="standard:crypto_category_wallet_group">
+                                            <!--<div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Risk Rating" value={riskRating} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Nature of Employers/Your Business" value={noe} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Employment type" value={empType} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="What is your total net worth?" value={totelNetWorth} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Country of Residence" value={countryOfResidence} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Country of nationality" value={countryOfNationality} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Source of Wealth" value={sourceOfWealth} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Source of Funds" value={sourceOfFunds} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Face to face Contact" value={contactMethod} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="PEP?" value={pep} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Country of PEP Exposure" value={countryOfPEP} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="PEP Associate" value={pepAssociate} disabled=true></lightning-input>
+                                                </div>
+                                            </div> -->
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Risk Rating" value={riskRating} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Organisation type" value={orgType} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Organisation Domicile" value={countryOfIncorporation} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Layers of Ownership" value={layersOfOwner} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Length of Establishment" value={lengthOfEst} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Balance Sheet (£'000s)" value={balanceSheet} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Politically Exposed Company" value={politicallyExposedCompany} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Sanctioned Individual Check" value={sancIndCheck} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Negative News Screening" value={negNewsScreen} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Previously Declined or Exited" value={preDecExited} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Nature of Business NPAA" value={natureOfBusiNPAA} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Source of Funds" value={sourceOfFunds} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="Face to face Contact" value={contactMethod} disabled=true></lightning-input>
+                                                </div>
+                                            </div>
+                                            <!--<div class="slds-grid" >
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="HR,Prohibited,sanctioned COR for Signif" value={hrProhibitedsanctionedCORforSignif} disabled=true></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                                    <lightning-input label="HR,Prohibited sanctioned COR for UBOs" value={hrProhibitedsanctionedCORforUBOsI} disabled=true></lightning-input>
+                                                </div>
+                                            </div>-->
+                                        </lightning-card>
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-p-left_large">
+                                    <div class="slds-box">
+                                        <lightning-card title="PEP status" icon-name="standard:channel_program_members">
+                                            <lightning-input label="PEP status" value={politicallyExposedCompany} disabled=true></lightning-input>
+                                            <br/>
+                                            If applicable, Domestic or Foreign PEP
+                                            <lightning-input label="HR,Prohibited,sanctioned COR for Signif" value={hrProhibitedsanctionedCORforSignif} disabled=true></lightning-input>
+                                            <lightning-input label="HR,Prohibited sanctioned COR for UBOs" value={hrProhibitedsanctionedCORforUBOsI} disabled=true></lightning-input>
+                                            <lightning-input label="Rationale for PEP Status" value={rationalePepStatus} onchange={handleChangerationalePepStatus} disabled={submitEDDform}></lightning-input>
+                                        </lightning-card>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="CONTROL CHECKS" icon-name="standard:care_request_reviewer">
+                    <div class="tabContent">
+                         <div class="slds-box">
+                             <div class="slds-grid" >
+                                <div class="slds-col slds-size_1-of-4 slds-p-left_large">
+                                    <lightning-card title="KYC Check" icon-name="standard:channel_program_members">
+                                       <!-- <c-custom-lookup-lwc onlookupupdate={handleSelectedlookup} label="KYC Analyst"  placeholder="Search Analyst"> </c-custom-lookup-lwc >  -->
+                                        <c-custom-lookup-lwc label="KYC Analyst"
+                                          onlookupupdate={handleSelectedlookup}
+                                        placeholder="Search Analyst" 
+                                        selectedrecord={kycAnalystWrap}
+                                        is-disabled-listener={submitEDDform}> </c-custom-lookup-lwc >
+
+                                        <!-- <lightning-input type="date" name="datecheckscompletedValue" label="Date checks completed" value={datecheckscompleted}></lightning-input> -->
+                                        <lightning-input type="date" label="Date checks completed" value={kycselectedDate} onchange={handleKycDateChange} disabled={submitEDDform}></lightning-input>
+
+                                    </lightning-card>
+                                </div>
+                                 <div class="slds-col slds-size_1-of-4 slds-p-left_large">
+                                     <lightning-card title="ID&V" icon-name="standard:crypto_category_wallet_group">
+                                                <lightning-combobox
+                                                name="IDVvalidationcheckValue"
+                                                label="ID&V validation check"
+                                                value={IDVvalidationcheck}
+                                                placeholder="Select Progress"
+                                                options={passfailOptions}
+                                                onchange={handleChangeIDVvalidationcheck} disabled={submitEDDform}></lightning-combobox>
+                                                <lightning-textarea label="ID&V validation check Comments" onchange={handleIDVValidationComments} value={IDVValidationComments} disabled={submitEDDform}></lightning-textarea>
+                                    </lightning-card>
+                                </div>
+                                 <div class="slds-col slds-size_1-of-4 slds-p-left_large">
+                                     <lightning-card title="Screening" icon-name="standard:crypto_product">
+                                                <lightning-combobox
+                                                name="pepScreeningmatchValue"
+                                                label="PEP Screening match"
+                                                value={pepScreeningmatch}
+                                                placeholder="Select Progress"
+                                                options={yesnoOptions}
+                                                onchange={handleChangepepScreeningmatch} disabled={submitEDDform}></lightning-combobox>
+                                                <lightning-textarea label="PEP Screening match Comments" onchange={handlePepComments} value={PepComments} disabled={submitEDDform}></lightning-textarea>
+                                                <br/>
+                                                <lightning-combobox
+                                                name="sanctionsscreeningmatchValue"
+                                                label="Sanctions Screening match"
+                                                value={sanctionsscreeningmatch}
+                                                placeholder="Select Progress"
+                                                options={yesnoOptions}
+                                                onchange={handleChangesanctionsscreeningmatch} disabled={submitEDDform}></lightning-combobox>
+                                                <lightning-textarea label="Sanctions Screening match Comments" onchange={handleSanctionsScreeingComments} value={SanctionsScreeningComments} disabled={submitEDDform}></lightning-textarea>
+                                                <br/>
+                                                <lightning-combobox
+                                                name="adversemediamatchValue"
+                                                label="Adverse Media match"
+                                                value={adversemediamatch}
+                                                placeholder="Select Progress"
+                                                options={yesnoOptions}
+                                                onchange={handleChangeadversemediamatch} disabled={submitEDDform} ></lightning-combobox>
+                                                <lightning-textarea label="Adverse Media match Comments" onchange={handleAdversMediaMatchComments} value={AdversMediaMatchComments} disabled={submitEDDform}></lightning-textarea>
+                                    </lightning-card>
+                                </div>
+                                <div class="slds-col slds-size_1-of-4 slds-p-left_large">
+                                     <lightning-card title="Transaction Monitoring" icon-name="standard:crypto_transaction">
+                                                <lightning-input label="Volume of credits and debits"></lightning-input>
+                                                <lightning-input label="Value of credits and debits (debits + credits) "></lightning-input>
+                                                <lightning-input label="Main method of transacting (debits + credits)"></lightning-input>
+                                                <lightning-input label="Payment activity in-line with the expected credits and debits"></lightning-input>
+                                    </lightning-card>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </lightning-tab>
+                
+                <lightning-tab label="RELATIONSHIP MANAGER APPROVAL" icon-name="standard:approval">
+                    <div class="tabContent">
+                        <div class="slds-box">
+                            <div class="slds-grid" >
+                                    <div class="slds-col slds-size_1-of-3"></div>
+                                    <div class="slds-col slds-size_1-of-3">
+                                            <lightning-combobox
+                                                name="RMRecommendationValue"
+                                                label="RM Recommendation"
+                                                value={RMRecommendation}
+                                                placeholder="Select Progress"
+                                                options={KYCRMRecommendationOptions}
+                                                onchange={handleChangeRMRecommendation} disabled={submitEDDform}></lightning-combobox>
+                                            <lightning-textarea label="RM Recommendation Comments" onchange={handleRMRecomComments} value={RMRecomComments} disabled={submitEDDform}></lightning-textarea><br/>
+                                            <!-- <c-custom-lookup-lwc label="Relationship Manager" onlookupupdate={handleSelectedlookup} placeholder="Search Manager"> </c-custom-lookup-lwc > -->
+                                           <!-- <lightning-textarea label="Relationship Manager Name" onchange={handleRMName} value={RMName}></lightning-textarea>  --><br/>
+                                            <lightning-input type="date" name="RMdateofApprovalValue" label="Date of Approval" onchange={handleRMdateofApproval} value={RMdateofApproval} disabled={submitEDDform}></lightning-input>
+                                            <!-- <lightning-input type="date" label="Date checks completed" value={kycselectedDate} onchange={handleKycDateChange}></lightning-input> -->
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="MLRO APPROVAL" icon-name="standard:approval">
+                    <div class="tabContent" >
+                        <div class="slds-box">
+                             <div class="slds-grid" >
+                                <div class="slds-col slds-size_1-of-3"></div>
+                                <!-- <div class="slds-col slds-size_1-of-2"></div> -->
+                                 <div class="slds-col slds-size_1-of-3" >
+                                        <lightning-combobox
+                                        name="MLROCRAOverrideValue"
+                                        label="MLRO CRA Override"
+                                        value={MLROCRAOverride}
+                                        placeholder="Select Progress"
+                                        options={yesnoOptions}
+                                        onchange={handleChangeMLROCRAOverride} disabled={submitEDDform}></lightning-combobox>
+                                        <lightning-textarea label="Rationale for MLRO CRA Override" onchange={handleRationaleforMLROCRAOverride} value={RationaleforMLROCRAOverride} disabled={submitEDDform}></lightning-textarea>
+                                        <lightning-combobox
+                                        name="MLRORecommendationValue"
+                                        label="MLRO Recommendation"
+                                        value={MLRORecommendation}
+                                        placeholder="Select Progress"
+                                        options={KYCRMRecommendationOptions}
+                                        onchange={handleChangeMLRORecommendation} disabled={submitEDDform}></lightning-combobox>
+                                        </br>
+                                        <lightning-textarea label="MLRO Recommendation Comments" onchange={handleMLROReccomendationComments} value={MLRORecomComments} disabled={submitEDDform}></lightning-textarea><br/>
+                                            <!--<lightning-input label="MLRO Name" value={MLROName}></lightning-input> 
+                                        <c-custom-lookup-lwc onlookupupdate={handleSelectedlookup} label="MLRO Name"  placeholder="Select MLRO Name"> </c-custom-lookup-lwc>  -->
+                                        <c-custom-lookup-lwc label="MLRO Name"
+                                                onlookupupdate={handleSelectedlookup}
+                                                placeholder="Search MLRO" 
+                                                selectedrecord={mlroWrap} is-disabled-listener={submitEDDform}> </c-custom-lookup-lwc >
+                                                
+                                        <lightning-input type="date" name="MLROdateofApprovalValue" label="Date of Approval" onchange={handleMLROdateofApproval} value={MLROdateofApproval} disabled={submitEDDform}></lightning-input>
+                                </div>
+                                <!--     <div class="slds-col slds-size_1-of-4 slds-p-left_large">
+                                 <lightning-card >
+                                                <lightning-combobox
+                                                name="AMLOCRecommendationValue"
+                                                label="AMLOC Recommendation"
+                                                value={AMLOCRecommendation}
+                                                placeholder="Select Progress"
+                                                options={KYCRMRecommendationOptions}
+                                                onchange={handleChangeAMLOCRecommendation} ></lightning-combobox>
+                                                <lightning-textarea label="AMLOC Recommendation Comments" onchange={handleAMLOCRecomComments} value={AMLOCRecomComments}></lightning-textarea>
+                                                <br/>
+                                                <lightning-input type="date" name="AMLOCdateofApprovalValue" label="Date of Approval" onchange={handleAMLOCdateofApproval} value={AMLOCdateofApproval}></lightning-input>
+                                    </lightning-card> 
+                                </div>   -->
+                                <div class="slds-col slds-size_1-of-3 slds-p-left_large">
+                                     
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </lightning-tab>
+                
+			<lightning-tab label="APPENDIX A" icon-name="standard:calculated_insights">
+				<div class="tabContent">
+					 <div class="slds-box">
+						 <div class="slds-grid" >
+							<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+								<div class="slds-box">
+									<lightning-card title="Screened Parties" icon-name="standard:crypto_category_wallet_group">
+										<!-- <div class="slds-grid" >
+											<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+												<lightning-input label="Screened Parties" onchange={handleScreenedParties} value={ScreenedParties} disabled={submitEDDform}></lightning-input>
+                                                <lightning-input label="Customer Name" value={customerName} disabled=true></lightning-input>
+                                                 <div class="slds-m-around_medium">
+                                                    <lightning-datatable
+                                                        key-field="id"
+                                                        data={relatedCustomerAccounts}
+                                                        hide-checkbox-column
+                                                        columns={columnsList}>
+                                                        
+                                                    </lightning-datatable>
+                                                 </div>
+                                                    <div class="slds-m-around_medium">
+                                                    <lightning-datatable
+                                                        key-field="id"
+                                                        data={relatedCustomerEntity}
+                                                        hide-checkbox-column
+                                                        columns={entitycolumnsList}>
+                                                        
+                                                    </lightning-datatable>
+                                                 </div>
+											</div>
+											<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+												<lightning-textarea label="Relationship" onchange={handleScreenedRelationship} value={ScreenedRelationship} disabled={submitEDDform}></lightning-textarea>
+											</div>
+										</div>
+										<div class="slds-grid" >
+											<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+												<lightning-combobox
+                                                name="PEPScreeningPositiveMatchplusmatchtype "
+                                                label="PEP Screening Positive Match plus match type"
+                                                value={PEPScreeningPositiveMatch}
+                                                placeholder="Select an Option"
+                                                options={matchOptions}
+                                                onchange={handlePEPScreeningPositiveMatch} disabled={submitEDDform}></lightning-combobox>
+											</div>
+											<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+												<lightning-combobox
+                                                name="SanctionScreeningPositiveMatchplusmatchtype"
+                                                label="Sanction Screening Positive Match plus match type "
+                                                value={SanctionScreeningPositiveMatch}
+                                                placeholder="Select an Option"
+                                                options={matchOptions}
+                                                onchange={handleSanctionScreeningPositiveMatch} disabled={submitEDDform}></lightning-combobox>
+											</div>
+										</div>
+										<div class="slds-grid" >
+											<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+												<lightning-combobox
+                                                name="AdverseMediaScreeningPositiveMatchplusmatchtype"
+                                                label="Adverse Media Screening Positive Match Plus Match Type"
+                                                value={AdverseMediaScreeningPositiveMatchplusmatchtype}
+                                                placeholder="Select an Option"
+                                                options={matchOptions}
+                                                onchange={handleAdverseMediaScreeningPositiveMatchplusmatchtype} disabled={submitEDDform}></lightning-combobox>
+											</div>
+											<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+												<lightning-textarea label="Comments" onchange={handleScreenedPartiesComments} value={ScreenedPartiesComments} disabled={submitEDDform}></lightning-textarea>
+											</div>
+										</div> -->
+
+                                    <c-l-w-c-custom-datatable-type
+                                        key-field="id"
+                                        data={screenPartiesData}
+                                        columns={screenedPartiesColumns}
+                                        hide-checkbox-column>
+                                    </c-l-w-c-custom-datatable-type>
+
+                                    <!-- <table>
+                                            <tr>
+                                                <th>{screenedPartiesColumns.column1}</th>
+                                                <th>{screenedPartiesColumns.column2}</th>
+                                                <th>{screenedPartiesColumns.column3}</th>
+                                                <th>{screenedPartiesColumns.column4}</th>
+                                                <th>{screenedPartiesColumns.column5}</th>
+                                                <th>{screenedPartiesColumns.column6}</th>
+                                            </tr>
+                                            <template for:each={spitems} for:item="idvitem">
+                                                    <tr key={spitems.id} >
+                                                        <td>
+                                                            <lightning-input type="text" name="Signatory Accounts" disabled=true></lightning-input>
+                                                        </td>
+                                                        <td>
+                                                            <lightning-combobox
+                                                            name="progress"
+                                                            value={purposevalue}
+                                                            placeholder="Select Purpose"
+                                                            options={purposeOptions}
+                                                            dropdown-alignment="auto"
+                                                            ></lightning-combobox>
+                                                        </td>
+                                                    </tr>
+                                            </template>
+                                    </table> -->
+									</lightning-card>
+								</div>
+							</div>
+							<div class="slds-col slds-size_1-of-2 slds-p-left_large">
+								<div class="slds-box">
+									<lightning-card title="ID&V" icon-name="standard:channel_program_members">
+										<!-- <lightning-input label="Document Name " ></lightning-input>
+										<br/>
+										<lightning-combobox
+                                                name="Purpose"
+                                                label="Purpose"
+                                                value={IDVPurpose}
+                                                placeholder="Select an Option"
+                                                options={optionsIDV}
+                                                onchange={handleIDVPurpose} disabled={submitEDDform} ></lightning-combobox>
+                                       <div class="slds-col slds-size_1-of-1">
+                                        <lightning-combobox
+                                                name="Location"
+                                                label="Location "
+                                                value={AppendixIDVLocation}
+                                                placeholder="Select Location"
+                                                options={countryOptions}
+                                                onchange={handleAppendixIDVLocation} disabled={submitEDDform} ></lightning-combobox>
+                                       </div>
+                                        <lightning-input type="date" name="issuedDate" label="Issued Date" onchange={handleIssuedDate} value={IssuedDate} disabled={submitEDDform}></lightning-input>
+                                        <lightning-input type="date" name="nextRenewalDate" label="Next Renewal Date" onchange={handleNextRenewalDate} value={NextRenewalDate} disabled={submitEDDform}></lightning-input>
+                                        <lightning-textarea label="Comments" onchange={handleIDVPartiesComments} value={IDVPartiesComments} disabled={submitEDDform}></lightning-textarea> -->
+
+                                         
+                                                        <!-- <lightning-datatable
+                                                            key-field="id"
+                                                            data={data}
+                                                            columns={IDVcolumns}>
+                                                        </lightning-datatable> -->
+                                                 <table>
+                                            <tr>
+                                                <th>{idvColumns.column1}</th>
+                                                <th>{idvColumns.column2}</th>
+                                                <th>{idvColumns.column3}</th>
+                                                <th>{idvColumns.column4}</th>
+                                                <th>{idvColumns.column5}</th>
+                                                <th>{idvColumns.column6}</th>
+                                            </tr>
+                                                <template for:each={idvitems} for:item="idvitem">
+                                                    <tr key={idvitem.id} >
+                                                        <td>
+                                                            <lightning-input type="text" name="Documentcomments" disabled=true></lightning-input>
+                                                        </td>
+                                                        <td>
+                                                            <lightning-combobox
+                                                            data-id={idvitem.id}
+                                                            name="purpose"
+                                                            value={idvitem.purposevalue}
+                                                            placeholder="Select Purpose"
+                                                            options={purposeOptions}
+                                                            dropdown-alignment="auto"
+                                                            onchange={handleIDVPurpose}
+                                                            ></lightning-combobox>
+                                                        </td>
+                                                        <td>
+                                                            <lightning-combobox
+                                                            name="IDVLocation"
+                                                            value={idvitem.AppendixIDVLocation}
+                                                            placeholder="Select Location"
+                                                            options={countryOptions}
+                                                            dropdown-alignment="auto"  
+                                                            onchange={handleAppendixIDVLocation} disabled={submitEDDform} 
+                                                            ></lightning-combobox>
+                                                        </td>
+                                                        <td>
+                                                            <lightning-input type="date" name="issuedDate" value={IssuedDate} onchange={handleIssuedDate} disabled={submitEDDform}></lightning-input>
+                                                        </td>
+                                                        <td>
+                                                            <lightning-input type="date" name="nextRenewalDate" onchange={handleNextRenewalDate} value={NextRenewalDate} disabled={submitEDDform}></lightning-input>
+                                                        </td>
+                                                        <td>
+                                                            <lightning-textarea name = "Comments" onchange={handleIDVPartiesComments} value={IDVPartiesComments} disabled={submitEDDform}></lightning-textarea>
+                                                        </td>
+                                                    </tr>
+                                                </template>
+                                        </table>
+									</lightning-card>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</lightning-tab>
+            <lightning-tab label="OPERATIONS APPROVAL" icon-name="standard:approval">
+                    <div class="tabContent">
+                        <div class="slds-box">
+                            <div class="slds-grid" >
+                                    <div class="slds-col slds-size_1-of-3"></div>
+                                    <div class="slds-col slds-size_1-of-3">
+                                            <lightning-combobox
+                                                name="KYCRecommendationValue"
+                                                label="KYC Analyst Recommendation"
+                                                value={KYCRecommendation}
+                                                placeholder="Select Progress"
+                                                options={KYCRMRecommendationOptions}
+                                                onchange={handleChangeKYCRecommendation} disabled={submitEDDform}></lightning-combobox>
+                                           <!-- <lightning-input label="KYC Analyst Recommendation Comments" value={kycAnalystComments}></lightning-input>--> <br/>
+                                            <lightning-textarea label="KYC Analyst Recommendation Comments" onchange={handleKycAnalystComments} value={KycAnalystComments} disabled={submitEDDform}></lightning-textarea>
+                                            <lightning-button label="Submit All Info to EDD" variant="success" title="Save EDD" onclick={handleSaveEDD} class="slds-align_absolute-center" disabled={submitEDDform}> </lightning-button>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </lightning-card>
+
+    <c-modal width-setting="medium" data-id="submitEDD">
+        <span slot="header">
+            <div class="slds-text-heading_medium">
+                <h3><b>Submit All Information to EDD</b></h3>
+            </div>
+        </span>
+        <div class="slds-p-vertical_medium">
+            <lightning-textarea name="saveEDDComments" label="Comments" placeholder="type here..." value=""></lightning-textarea>
+        </div>
+        <div slot="footer">
+
+            <div class="slds-grid  slds-p-vertical_small slds-grid_vertical-align-end slds-gutters slds-grid_align-end">
+                <div class="slds-col">
+                    <lightning-button variant="brand-outline" label="Cancel" title="Cancel Assign Account"
+                        onclick={cancelsaveEDD}></lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button variant="brand" label="Submit EDD" title="Submit EDD"
+                        onclick={handleSubmitEDD}  data-id="saveEDD">
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+    </c-modal>
+</template>

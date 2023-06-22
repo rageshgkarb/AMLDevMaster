@@ -1,0 +1,11 @@
+.modal-hidden {
+    display: none;
+}
+
+.slds-modal__container-wide {
+    max-width: 80rem !important;
+    width: 80% !important;
+}
+.lightgray{
+    background: lightgray
+}

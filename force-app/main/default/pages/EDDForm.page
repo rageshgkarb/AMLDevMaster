@@ -1,0 +1,16 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false" >
+    <apex:includeLightning />    
+    <div id="EDDComponentid" />    
+    <script>
+    $Lightning.use("c:EDDFormLightning", function() {
+        $Lightning.createComponent("c:eDDForm",
+          { 
+              recordId: '{!$CurrentPage.parameters.recordId}'
+          },
+          "EDDComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    });
+    </script>
+</apex:page>

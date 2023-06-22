@@ -1,0 +1,20 @@
+<template>
+ <div>
+        <lightning-card title="Source of Funds" icon-name="standard:crypto_product">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_1-of-1">
+                    <lightning-card>
+                        <c-l-w-c-custom-datatable-type
+                            key-field="id"
+                            data={table1Data}
+                            columns={table1Columns}
+                            oncellchange={handleTable1Save}
+                            hide-checkbox-column
+                        >
+                        </c-l-w-c-custom-datatable-type>
+                    </lightning-card>
+                </div>
+             </div>
+          </lightning-card>
+    </div>
+</template>

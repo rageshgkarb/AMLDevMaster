@@ -1,0 +1,26 @@
+<template>
+    <template class="ob-spinner-container" if:true={showspinner}>
+        <lightning-spinner alternative-text="Loading" variant="brand" class="slds-is-fixed" size="large"></lightning-spinner>
+    </template>
+    <div >
+        
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_1-of-1">
+                    <lightning-card title={type}>
+                        <c-l-w-c-custom-datatable-type
+                            key-field="id"
+                            data={table1Data}
+                            columns={table1Columns}
+                            oncellchange={handleTable1Save}
+                            hide-checkbox-column
+                        >
+                        </c-l-w-c-custom-datatable-type>
+                    </lightning-card>
+                </div>
+            </div>
+            <br/>
+                <lightning-input label={tableLabel} class="slds-size_small" value={totalValue} disabled=true></lightning-input>
+            <br/>
+                                                        
+    </div>
+</template>
