@@ -6,7 +6,7 @@
 * @JIRA            : ASE-37
 
   LOG   DATE        Author  UserStory           COMMENT      
-* 001   12/06/2023  RG                       First Commit
+* 001   12/06/2023  RG                       Changes
 ********************************************************************/
 trigger ARBCustomerERTrigger on Related_Customer_Entity_Relationship__c (after insert, after update, after undelete) {
 
